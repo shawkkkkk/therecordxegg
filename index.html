@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="One egg. One post. One attempt to become the most-liked post on X." />
+    <meta property="og:title" content="World Record X Egg" />
+    <meta property="og:description" content="Help make one egg the most-liked post on X." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://worldrecordxegg.com/" />
+    <meta property="og:image" content="https://worldrecordxegg.com/assets/world-record-egg.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="World Record X Egg" />
+    <meta name="twitter:description" content="One egg. One post. One attempt to become the most-liked post on X." />
+    <meta name="twitter:image" content="https://worldrecordxegg.com/assets/world-record-egg.png" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>World Record X Egg</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to campaign</a>
+
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="World Record X Egg home">
+        <span class="brand-mark" aria-hidden="true">🥚</span>
+        <span>WORLD RECORD X EGG</span>
+      </a>
+      <span class="status-pill" id="campaign-status">PRE-LAUNCH</span>
+    </header>
+
+    <main id="main" class="page-shell">
+      <section class="campaign" aria-labelledby="campaign-title">
+        <div class="campaign-copy">
+          <p class="eyebrow">THE INTERNET'S NEXT BIG EGG</p>
+          <h1 id="campaign-title">One egg.<br />One record.</h1>
+          <p class="intro">Help make this the most-liked post in X history.</p>
+        </div>
+
+        <figure class="egg-stage">
+          <img src="/assets/world-record-egg.png" width="954" height="946" alt="A single brown egg standing against a white background" />
+        </figure>
+
+        <div class="progress-card" aria-label="Campaign like progress">
+          <div class="progress-labels">
+            <span id="like-count">POST COMING SOON</span>
+            <span id="record-target">GOAL 6.7M+</span>
+          </div>
+          <div class="progress-track" aria-hidden="true"><span id="progress-fill"></span></div>
+        </div>
+
+        <div class="actions" aria-label="Campaign actions">
+          <a class="button button-primary is-disabled" id="like-button" href="#" aria-disabled="true">
+            <span>LIKE THE EGG ON X</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <div class="button-row">
+            <a class="button button-secondary is-disabled" id="xmoney-button" href="#" aria-disabled="true">
+              <span class="button-icon" aria-hidden="true">𝕏</span>
+              <span>SEND WITH X MONEY</span>
+            </a>
+            <button class="button button-secondary" id="direct-button" type="button">
+              <span class="button-icon" aria-hidden="true">$</span>
+              <span>CONTRIBUTE ON SITE</span>
+            </button>
+          </div>
+        </div>
+
+        <aside class="campaign-promise" aria-label="Campaign funding promise">
+          <span class="promise-icon" aria-hidden="true">↗</span>
+          <div>
+            <h2>Every dollar pushes the egg further.</h2>
+            <p>Every contribution made through X Money or this site will fund legitimate promotion, creative production, and verified advertising for the X post. We will never buy likes, bots, or inauthentic engagement.</p>
+            <p class="promise-winner">The largest verified contributor when the record is officially broken earns the right to name the egg for the history books, subject to the published naming rules.</p>
+          </div>
+        </aside>
+      </section>
+
+      <aside class="leaderboard" aria-labelledby="leaderboard-title">
+        <div class="leaderboard-header">
+          <div>
+            <p class="eyebrow">LIVE STANDINGS</p>
+            <h2 id="leaderboard-title">Top egg backers</h2>
+          </div>
+          <span class="live-dot"><i aria-hidden="true"></i> VERIFIED</span>
+        </div>
+
+        <div class="leaderboard-columns" aria-hidden="true">
+          <span>RANK / BACKER</span>
+          <span>EGG NAME</span>
+          <span>AMOUNT</span>
+        </div>
+        <ol class="donor-list" id="donor-list" aria-live="polite"></ol>
+        <div class="empty-state" id="empty-state">
+          <span class="empty-egg" aria-hidden="true">○</span>
+          <h3>The podium is empty.</h3>
+          <p>Be the first verified contributor and put your egg name at number one.</p>
+        </div>
+        <p class="leaderboard-note">Only settled, verified contributions appear here. Ties are ranked by the earliest verified payment.</p>
+      </aside>
+    </main>
+
+    <section class="how-it-works" aria-labelledby="how-title">
+      <div class="section-heading">
+        <p class="eyebrow">THE PLAN</p>
+        <h2 id="how-title">The internet can do this.</h2>
+      </div>
+      <div class="steps">
+        <article><span>01</span><h3>Like the post</h3><p>One real person. One real like. Share it if the egg deserves the record.</p></article>
+        <article><span>02</span><h3>Back the campaign</h3><p>Support promotion through X Money or the verified on-site checkout.</p></article>
+        <article><span>03</span><h3>Name the egg</h3><p>The largest verified contributor at record break chooses its permanent name.</p></article>
+      </div>
+    </section>
+
+    <section class="fine-print" aria-labelledby="transparency-title">
+      <h2 id="transparency-title">Campaign transparency</h2>
+      <p>This is an independent internet campaign and is not affiliated with or endorsed by X Corp., X Money, Guinness World Records, or the current record holder. Contributions are not charitable donations, investments, wagers, or purchases of guaranteed engagement, and are not tax-deductible. Record status and payment totals require independent verification. Proposed egg names must be lawful, non-abusive, and suitable for public display.</p>
+    </section>
+
+    <footer>
+      <span>© <span id="year"></span> WORLD RECORD X EGG</span>
+      <span>ONE EGG. ONE INTERNET.</span>
+    </footer>
+
+    <dialog id="contribution-dialog" aria-labelledby="dialog-title">
+      <form id="contribution-form" method="dialog">
+        <button class="dialog-close" type="button" id="dialog-close" aria-label="Close contribution form">×</button>
+        <p class="eyebrow">BACK THE EGG</p>
+        <h2 id="dialog-title">Claim your leaderboard spot.</h2>
+        <p class="dialog-intro">Enter the public name and egg name you want displayed. Payment happens through the approved checkout provider.</p>
+
+        <label for="donor-name">Your public name</label>
+        <input id="donor-name" name="donor" maxlength="32" autocomplete="nickname" placeholder="Anonymous" />
+
+        <label for="egg-name">Your proposed egg name</label>
+        <input id="egg-name" name="eggName" maxlength="32" required placeholder="Eggward" />
+
+        <label for="amount">Contribution amount (USD)</label>
+        <div class="amount-input"><span>$</span><input id="amount" name="amount" type="number" min="1" max="1000000" step="1" inputmode="decimal" required placeholder="25" /></div>
+
+        <label class="consent-row"><input id="public-consent" type="checkbox" required /><span>I consent to displaying my public name, proposed egg name, contribution amount, and payment route on the leaderboard.</span></label>
+
+        <button class="button button-primary checkout-button" id="checkout-button" type="submit">CONTINUE TO SECURE CHECKOUT <span aria-hidden="true">↗</span></button>
+        <p class="form-status" id="form-status" role="status"></p>
+        <p class="checkout-note">No card details are collected on this page. Contributions become final only after the payment provider confirms settlement.</p>
+      </form>
+    </dialog>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
