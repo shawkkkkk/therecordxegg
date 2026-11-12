@@ -23,7 +23,8 @@ function configureLink(element, value, pendingLabel) {
     element.removeAttribute("target");
     element.removeAttribute("rel");
     element.href = "#";
-    element.querySelector("span:first-child").textContent = pendingLabel;
+    const label = element.querySelector(".button-label");
+    if (label) label.textContent = pendingLabel;
     return;
   }
   element.href = url.href;
