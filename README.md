@@ -20,7 +20,7 @@ Edit `data/site.json`:
 
 - `xPostUrl`: the final HTTPS URL of the X post.
 - `xMoneyUrl`: the approved X Money payment URL for this campaign.
-- `directDonationCheckoutUrl`: the approved hosted checkout URL. The site appends `donor`, `eggName`, and whole-dollar `amount` query parameters; the eventual payment integration must bind and validate them server-side rather than trusting the browser.
+- `directDonationCheckoutUrl`: the approved hosted checkout URL. The site appends `donor`, `eggName`, and `amount` query parameters; the payment integration must enforce the processor's limits and bind and validate all values server-side rather than trusting the browser.
 - `currentLikes`: a verified integer like count, or `null` before launch.
 - `recordTarget`: the campaign target as an integer.
 - `recordTargetLabel`: the short display label.

@@ -74,7 +74,7 @@
           <div>
             <h2>Every dollar pushes the egg further.</h2>
             <p>Every contribution made through X Money or this site will fund legitimate promotion, creative production, and verified advertising for the X post. We will never buy likes, bots, or inauthentic engagement.</p>
-            <p class="promise-winner">The largest verified contributor when the record is officially broken earns the right to name the egg for the history books, subject to the published naming rules.</p>
+            <p class="promise-winner">The largest verified contributor when the record is officially broken earns the right to name the egg for the history books.</p>
           </div>
         </aside>
       </section>
@@ -139,7 +139,7 @@
         <input id="egg-name" name="eggName" maxlength="32" required placeholder="Eggward" />
 
         <label for="amount">Contribution amount (USD)</label>
-        <div class="amount-input"><span>$</span><input id="amount" name="amount" type="number" min="1" max="1000000" step="1" inputmode="decimal" required placeholder="25" /></div>
+        <div class="amount-input"><span>$</span><input id="amount" name="amount" type="number" min="1" step="0.01" inputmode="decimal" required placeholder="25" /></div>
 
         <label class="consent-row"><input id="public-consent" type="checkbox" required /><span>I consent to displaying my public name, proposed egg name, contribution amount, and payment route on the leaderboard.</span></label>
 
@@ -152,4 +152,3 @@
     <script src="/app.js" defer></script>
   </body>
 </html>
-

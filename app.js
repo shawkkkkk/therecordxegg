@@ -61,7 +61,7 @@ function validDonor(item) {
   return item && item.verified === true && ["xmoney", "site"].includes(item.route) &&
     typeof item.donor === "string" && item.donor.trim().length > 0 && item.donor.length <= 32 &&
     typeof item.eggName === "string" && item.eggName.trim().length > 0 && item.eggName.length <= 32 &&
-    Number.isFinite(item.amountUsd) && item.amountUsd > 0 && item.amountUsd <= 1_000_000 &&
+    Number.isFinite(item.amountUsd) && item.amountUsd > 0 &&
     typeof item.verifiedAt === "string" && Number.isFinite(Date.parse(item.verifiedAt));
 }
 
@@ -139,16 +139,18 @@ $("#contribution-form").addEventListener("submit", (event) => {
   }
   const donor = $("#donor-name").value.trim() || "Anonymous";
   const eggName = $("#egg-name").value.trim();
-  const amount = Number($("#amount").value);
-  if (!eggName || eggName.length > 32 || !Number.isInteger(amount) || amount < 1 || amount > 1_000_000 || !$("#public-consent").checked) {
-    status.textContent = "Check the name, whole-dollar amount, and leaderboard consent before continuing.";
+  const amount = $("#amount").value.trim();
+  const validAmount = /^\d+(?:\.\d{1,2})?$/.test(amount) && Number.isFinite(Number(amount)) && Number(amount) >= 1;
+  if (!eggName || eggName.length > 32 || !validAmount || !$("#public-consent").checked) {
+    status.textContent = "Check the name, amount, and leaderboard consent before continuing.";
     return;
   }
   checkout.searchParams.set("donor", donor);
   checkout.searchParams.set("eggName", eggName);
-  checkout.searchParams.set("amount", String(amount));
+  checkout.searchParams.set("amount", amount);
   window.location.assign(checkout.href);
 });
 
 $("#year").textContent = new Date().getFullYear();
 loadData();
+
