@@ -104,15 +104,19 @@ function renderLeaderboard() {
 
 async function loadData() {
   try {
-    const [siteResponse, leaderboardResponse] = await Promise.all([
+    const [siteResponse, leaderboardResponse, stripeResponse] = await Promise.all([
       fetch("/data/site.json", { cache: "no-store" }),
       fetch("/data/leaderboard.json", { cache: "no-store" }),
+      fetch("/api/contributions", { cache: "no-store" }).catch(() => null),
     ]);
     if (!siteResponse.ok || !leaderboardResponse.ok) throw new Error("Campaign data unavailable");
     const site = await siteResponse.json();
     const leaderboard = await leaderboardResponse.json();
     state.site = site;
-    state.leaderboard = Array.isArray(leaderboard.donors) ? leaderboard.donors : [];
+    const staticDonors = Array.isArray(leaderboard.donors) ? leaderboard.donors : [];
+    const stripeLeaderboard = stripeResponse?.ok ? await stripeResponse.json() : { donors: [] };
+    const stripeDonors = Array.isArray(stripeLeaderboard.donors) ? stripeLeaderboard.donors : [];
+    state.leaderboard = [...staticDonors, ...stripeDonors];
     renderSite();
     renderLeaderboard();
   } catch {
@@ -129,14 +133,12 @@ dialog.addEventListener("click", (event) => {
   if (event.target === dialog) dialog.close();
 });
 
-$("#contribution-form").addEventListener("submit", (event) => {
+$("#contribution-form").addEventListener("submit", async (event) => {
   event.preventDefault();
   const status = $("#form-status");
-  const checkout = safeExternalUrl(state.site?.directDonationCheckoutUrl);
-  if (!checkout) {
-    status.textContent = "Secure direct checkout is not connected yet. Please use X Money once its payment link is live.";
-    return;
-  }
+  const highValueLink = $("#high-value-link");
+  const checkoutButton = $("#checkout-button");
+  highValueLink.hidden = true;
   const donor = $("#donor-name").value.trim() || "Anonymous";
   const eggName = $("#egg-name").value.trim();
   const amount = $("#amount").value.trim();
@@ -145,12 +147,43 @@ $("#contribution-form").addEventListener("submit", (event) => {
     status.textContent = "Check the name, amount, and leaderboard consent before continuing.";
     return;
   }
-  checkout.searchParams.set("donor", donor);
-  checkout.searchParams.set("eggName", eggName);
-  checkout.searchParams.set("amount", amount);
-  window.location.assign(checkout.href);
+  checkoutButton.disabled = true;
+  status.textContent = "Opening secure Stripe checkout…";
+  try {
+    const response = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ donor, eggName, amount, consent: true }),
+    });
+    const payload = await response.json();
+    if (!response.ok) {
+      status.textContent = payload.error || "Secure checkout is unavailable.";
+      const highValueUrl = safeExternalUrl(payload.highValueUrl);
+      if (payload.code === "bank_transfer_required" && highValueUrl) {
+        highValueLink.href = highValueUrl.href;
+        highValueLink.hidden = false;
+      }
+      return;
+    }
+    const checkout = safeExternalUrl(payload.url);
+    if (!checkout) throw new Error("Invalid checkout URL");
+    window.location.assign(checkout.href);
+  } catch {
+    status.textContent = "Secure checkout is temporarily unavailable. Please try again.";
+  } finally {
+    checkoutButton.disabled = false;
+  }
 });
+
+const paymentState = new URLSearchParams(window.location.search).get("payment");
+if (paymentState === "success" || paymentState === "cancelled") {
+  const banner = $("#payment-banner");
+  banner.textContent = paymentState === "success"
+    ? "Payment submitted. Your leaderboard entry appears after Stripe confirms settlement."
+    : "Checkout was cancelled. No payment was submitted.";
+  banner.hidden = false;
+  window.history.replaceState({}, "", `${window.location.pathname}${window.location.hash}`);
+}
 
 $("#year").textContent = new Date().getFullYear();
 loadData();
-
