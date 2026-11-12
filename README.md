@@ -10,6 +10,10 @@ python3 -m http.server 4173
 
 Open `http://127.0.0.1:4173`.
 
+## Deployment
+
+The repository is linked to the `therecordxegg` project on Vercel. Pull-request branches receive preview deployments; merges to `main` publish the production build.
+
 ## Campaign configuration
 
 Edit `data/site.json`:
