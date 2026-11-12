@@ -25,6 +25,7 @@ a { color: inherit; }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-size: 13px; font-weight: 700; letter-spacing: .1em; }
 .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--ink); border-radius: 50%; font-size: 17px; }
 .status-pill { border: 1px solid var(--ink); border-radius: 999px; padding: 8px 12px; font-size: 10px; font-weight: 700; letter-spacing: .12em; }
+.payment-banner { max-width: calc(var(--max) - 84px); margin: 10px auto 0; padding: 14px 18px; border: 1px solid var(--ink); background: var(--soft); color: var(--ink); font-size: 12px; font-weight: 600; text-align: center; }
 
 .page-shell { max-width: var(--max); margin: 0 auto; padding: 42px; display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(390px, .88fr); gap: 72px; align-items: start; }
 .campaign { min-width: 0; }
@@ -110,6 +111,8 @@ dialog input:not([type="checkbox"]) { width: 100%; height: 50px; padding: 0 14px
 .checkout-button { width: 100%; margin-top: 22px; }
 .checkout-note, .form-status { color: var(--muted); font-size: 10px; line-height: 1.45; text-align: center; }
 .form-status { min-height: 15px; color: var(--ink); font-weight: 700; }
+.high-value-link { display: block; margin: 10px auto 0; color: var(--ink); font-size: 10px; font-weight: 700; letter-spacing: .06em; text-align: center; }
+.high-value-link[hidden] { display: none; }
 
 @media (max-width: 980px) {
   .site-header { padding-inline: 24px; }
