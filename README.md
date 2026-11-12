@@ -24,7 +24,7 @@ Edit `data/site.json`:
 - `recordTarget`: the campaign target as an integer.
 - `recordTargetLabel`: the short display label.
 
-The on-site form creates a Stripe-hosted Checkout Session through `/api/create-checkout-session`; card and bank details never touch this site. Checkout fails closed until the required Stripe secrets are configured.
+The on-site form creates a Stripe-hosted Checkout Session through `/api/create-checkout-session`; card and bank details never touch this site. The return page verifies the Checkout Session server-side through `/api/checkout-status` before showing a result. Checkout fails closed until the required Stripe secrets are configured.
 
 ## Stripe setup
 
