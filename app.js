@@ -175,15 +175,31 @@ $("#contribution-form").addEventListener("submit", async (event) => {
   }
 });
 
-const paymentState = new URLSearchParams(window.location.search).get("payment");
-if (paymentState === "success" || paymentState === "cancelled") {
+async function showPaymentResult() {
+  const query = new URLSearchParams(window.location.search);
+  const paymentState = query.get("payment");
+  if (paymentState !== "success" && paymentState !== "cancelled") return;
   const banner = $("#payment-banner");
-  banner.textContent = paymentState === "success"
-    ? "Payment submitted. Your leaderboard entry appears after Stripe confirms settlement."
-    : "Checkout was cancelled. No payment was submitted.";
   banner.hidden = false;
+  if (paymentState === "cancelled") {
+    banner.textContent = "Checkout was cancelled. No payment was submitted.";
+  } else {
+    banner.textContent = "Verifying the Stripe checkout…";
+    const sessionId = query.get("session_id");
+    try {
+      const response = await fetch(`/api/checkout-status?session_id=${encodeURIComponent(sessionId || "")}`, { cache: "no-store" });
+      const payload = await response.json();
+      if (!response.ok) throw new Error("Unverified checkout");
+      banner.textContent = payload.status === "paid"
+        ? "Payment confirmed. Your verified contribution will appear on the leaderboard."
+        : "Payment submitted. Your leaderboard entry appears after Stripe confirms settlement.";
+    } catch {
+      banner.textContent = "We could not verify that checkout. No contribution will appear unless Stripe confirms settlement.";
+    }
+  }
   window.history.replaceState({}, "", `${window.location.pathname}${window.location.hash}`);
 }
 
 $("#year").textContent = new Date().getFullYear();
+showPaymentResult();
 loadData();
