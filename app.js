@@ -45,7 +45,6 @@ function formatCurrency(value) {
 
 function renderSite() {
   const site = state.site;
-  $("#campaign-status").textContent = (site.campaignStatus || "PRE-LAUNCH").toUpperCase();
   $("#like-count").textContent = formatLikes(site.currentLikes);
   $("#record-target").textContent = `GOAL ${site.recordTargetLabel || "6.7M+"}`;
   configureLink($("#like-button"), site.xPostUrl, "X POST LINK COMING");
