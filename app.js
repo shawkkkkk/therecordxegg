@@ -140,11 +140,13 @@ $("#contribution-form").addEventListener("submit", async (event) => {
   const checkoutButton = $("#checkout-button");
   highValueLink.hidden = true;
   const donor = $("#donor-name").value.trim() || "Anonymous";
+  const donorEmail = $("#donor-email").value.trim();
   const eggName = $("#egg-name").value.trim();
   const amount = $("#amount").value.trim();
+  const validEmail = donorEmail.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(donorEmail);
   const validAmount = /^\d+(?:\.\d{1,2})?$/.test(amount) && Number.isFinite(Number(amount)) && Number(amount) >= 1;
-  if (!eggName || eggName.length > 32 || !validAmount || !$("#public-consent").checked) {
-    status.textContent = "Check the name, amount, and leaderboard consent before continuing.";
+  if (!eggName || eggName.length > 32 || !validEmail || !validAmount || !$("#public-consent").checked) {
+    status.textContent = "Check the email, name, amount, and leaderboard consent before continuing.";
     return;
   }
   checkoutButton.disabled = true;
@@ -153,7 +155,7 @@ $("#contribution-form").addEventListener("submit", async (event) => {
     const response = await fetch("/api/create-checkout-session", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ donor, eggName, amount, consent: true }),
+      body: JSON.stringify({ donor, donorEmail, eggName, amount, consent: true }),
     });
     const payload = await response.json();
     if (!response.ok) {

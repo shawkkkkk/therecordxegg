@@ -52,7 +52,7 @@ Stripe Checkout handles contributions below $1,000,000. Configure `HIGH_VALUE_CO
 }
 ```
 
-The client combines manually verified X Money records with settled Stripe Checkout Sessions, then validates, sorts, and displays at most ten records. Stripe entries appear only after `payment_status=paid`; delayed ACH payments remain hidden until settlement. Do not add a manual donor until payment settlement, public-display consent, and the submitted egg name have been verified.
+The client combines manually verified X Money records with settled Stripe Checkout Sessions, then validates, sorts, and displays at most ten records. Stripe entries appear only after `payment_status=paid`; delayed ACH payments remain hidden until settlement. Repeat Stripe contributions using the same normalized checkout email are summed into one leaderboard total; the most recently submitted public name and egg name are displayed, while the email remains private and is never returned by the leaderboard API. Contributions made with different emails remain separate. Do not add a manual donor until payment settlement, public-display consent, and the submitted egg name have been verified.
 
 ## Release boundaries
 

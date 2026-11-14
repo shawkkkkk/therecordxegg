@@ -6,6 +6,13 @@ function cleanName(value, fallback = "") {
   return cleaned.slice(0, 32) || fallback;
 }
 
+function cleanEmail(value) {
+  if (typeof value !== "string") return "";
+  const email = value.trim().toLowerCase();
+  if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return "";
+  return email;
+}
+
 export default async function handler(request, response) {
   if (request.method !== "POST") {
     response.setHeader("Allow", "POST");
@@ -13,11 +20,12 @@ export default async function handler(request, response) {
   }
 
   const donor = cleanName(request.body?.donor, "Anonymous");
+  const donorEmail = cleanEmail(request.body?.donorEmail);
   const eggName = cleanName(request.body?.eggName);
   const cents = parseUsdToCents(String(request.body?.amount || ""));
   const consent = request.body?.consent === true;
-  if (!eggName || !cents || !consent) {
-    return json(response, 400, { error: "Enter a valid amount, egg name, and leaderboard consent." });
+  if (!donorEmail || !eggName || !cents || !consent) {
+    return json(response, 400, { error: "Enter a valid email, amount, egg name, and leaderboard consent." });
   }
 
   if (!isStripeCheckoutAmount(cents)) {
@@ -36,6 +44,7 @@ export default async function handler(request, response) {
       submit_type: "pay",
       success_url: `${site}/?payment=success&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${site}/?payment=cancelled`,
+      customer_email: donorEmail,
       "line_items[0][price_data][currency]": "usd",
       "line_items[0][price_data][product_data][name]": "World Record X Egg contribution",
       "line_items[0][price_data][unit_amount]": amount,
