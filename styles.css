@@ -53,8 +53,7 @@ a { color: inherit; }
 .is-disabled { opacity: 1; color: var(--ink); border-style: dashed; cursor: not-allowed; pointer-events: none; }
 
 .campaign-promise { margin-top: 18px; padding: 24px; display: grid; grid-template-columns: auto 1fr; gap: 18px; border: 1px solid var(--line); background: var(--soft); }
-.promise-icon { width: 40px; height: 48px; display: grid; place-items: center; color: var(--ink); }
-.promise-icon svg { width: 32px; height: 40px; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.promise-icon { width: 34px; height: 42px; display: block; border: 1.5px solid var(--ink); border-radius: 50% 50% 46% 46% / 58% 58% 42% 42%; transform: rotate(3deg); }
 .campaign-promise h2 { margin: 2px 0 8px; font-size: 19px; letter-spacing: -.025em; }
 .campaign-promise p { margin: 0; color: var(--ink); font-size: 13px; line-height: 1.6; }
 .campaign-promise .promise-winner { margin-top: 10px; color: var(--ink); font-weight: 600; }
