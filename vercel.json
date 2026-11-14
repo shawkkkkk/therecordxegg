@@ -15,6 +15,13 @@
     {
       "source": "/data/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, s-maxage=30, stale-while-revalidate=60" }]
+    },
+    {
+      "source": "/admin",
+      "headers": [
+        { "key": "Cache-Control", "value": "private, no-store" },
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }
+      ]
     }
   ]
 }

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin.css" />
+    <title>Egg Admin</title>
+  </head>
+  <body>
+    <header>
+      <a href="/" aria-label="World Record X Egg home"><span class="egg-mark" aria-hidden="true"></span><b>WORLD RECORD X EGG</b></a>
+      <span>OWNER WORKSPACE</span>
+    </header>
+
+    <main>
+      <section class="login-panel" id="login-panel">
+        <p class="eyebrow">PRIVATE ACCESS</p>
+        <h1>Verify owner access.</h1>
+        <form id="login-form">
+          <label for="password">Admin password</label>
+          <input id="password" type="password" autocomplete="current-password" required />
+          <button type="submit">SIGN IN <span aria-hidden="true">→</span></button>
+          <p class="status" id="login-status" role="status"></p>
+        </form>
+      </section>
+
+      <section class="dashboard" id="dashboard" hidden>
+        <div class="dashboard-heading">
+          <div><p class="eyebrow">X MONEY VERIFICATION</p><h1>Record a settled payment.</h1></div>
+          <button class="text-button" id="logout-button" type="button">SIGN OUT</button>
+        </div>
+
+        <div class="admin-grid">
+          <form class="entry-form" id="entry-form">
+            <label for="transaction-id">Transaction or reference ID</label>
+            <input id="transaction-id" maxlength="128" autocomplete="off" required placeholder="Unique receipt reference" />
+
+            <label for="x-handle">Sender’s X handle</label>
+            <input id="x-handle" maxlength="16" autocomplete="off" required placeholder="@username" />
+
+            <label for="donor-name">Public donor name</label>
+            <input id="donor-name" maxlength="32" autocomplete="off" placeholder="Defaults to X handle" />
+
+            <label for="egg-name">Proposed egg name</label>
+            <input id="egg-name" maxlength="32" autocomplete="off" required placeholder="Eggward" />
+
+            <div class="field-row">
+              <div><label for="amount">Amount (USD)</label><input id="amount" type="number" min="0.01" step="0.01" required placeholder="25.00" /></div>
+              <div><label for="paid-at">Payment time</label><input id="paid-at" type="datetime-local" required /></div>
+            </div>
+
+            <button type="submit">ADD VERIFIED PAYMENT <span aria-hidden="true">→</span></button>
+            <p class="status" id="entry-status" role="status"></p>
+            <p class="form-note">Only enter completed payments visible in X Money Activity. Reusing a transaction ID is blocked automatically.</p>
+          </form>
+
+          <section class="ledger" aria-labelledby="ledger-title">
+            <div class="ledger-heading"><h2 id="ledger-title">Verified ledger</h2><button class="text-button" id="refresh-button" type="button">REFRESH</button></div>
+            <div class="ledger-list" id="ledger-list"></div>
+            <p class="empty" id="ledger-empty">No X Money payments recorded yet.</p>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script src="/admin.js" defer></script>
+  </body>
+</html>

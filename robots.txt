@@ -1,4 +1,6 @@
 User-agent: *
+Disallow: /admin
+Disallow: /api/admin-
 Allow: /
 
 Sitemap: https://worldrecordxegg.com/sitemap.xml

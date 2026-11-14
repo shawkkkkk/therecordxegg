@@ -105,7 +105,7 @@ function renderLeaderboard() {
 async function loadData() {
   try {
     const [siteResponse, leaderboardResponse, stripeResponse] = await Promise.all([
-      fetch("/data/site.json", { cache: "no-store" }),
+      fetch("/api/site-status", { cache: "no-store" }),
       fetch("/data/leaderboard.json", { cache: "no-store" }),
       fetch("/api/contributions", { cache: "no-store" }).catch(() => null),
     ]);
