@@ -126,6 +126,37 @@ async function loadData() {
 }
 
 const dialog = $("#contribution-dialog");
+const amountInput = $("#amount");
+const presetAmountButtons = [...document.querySelectorAll(".amount-option[data-amount]")];
+const customAmountButton = $("#custom-amount-button");
+
+function markSelectedAmount(value, customSelected = false) {
+  presetAmountButtons.forEach((button) => {
+    const selected = button.dataset.amount === value;
+    button.classList.toggle("is-selected", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  });
+  customAmountButton.classList.toggle("is-selected", customSelected);
+  customAmountButton.setAttribute("aria-pressed", String(customSelected));
+}
+
+presetAmountButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    amountInput.value = button.dataset.amount;
+    markSelectedAmount(button.dataset.amount);
+  });
+});
+
+customAmountButton.addEventListener("click", () => {
+  amountInput.value = "";
+  markSelectedAmount("", true);
+  amountInput.focus();
+});
+
+amountInput.addEventListener("input", () => {
+  const matchingPreset = presetAmountButtons.find((button) => button.dataset.amount === amountInput.value);
+  markSelectedAmount(matchingPreset?.dataset.amount || "", !matchingPreset);
+});
 $("#direct-button").addEventListener("click", () => dialog.showModal());
 $("#dialog-close").addEventListener("click", () => dialog.close());
 dialog.addEventListener("click", (event) => {
