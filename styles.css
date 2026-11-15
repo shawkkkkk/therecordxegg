@@ -45,7 +45,7 @@ a { color: inherit; }
 .actions { margin-top: 28px; display: grid; gap: 10px; }
 .button { min-height: 58px; border: 1px solid var(--ink); display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 16px 20px; border-radius: 0; background: var(--white); color: var(--ink); text-decoration: none; font-size: 12px; font-weight: 700; letter-spacing: .09em; cursor: pointer; transition: transform .18s ease, background .18s ease, color .18s ease; }
 .button:hover:not(.is-disabled) { transform: translateY(-2px); }
-.button:focus-visible, input:focus-visible, .dialog-close:focus-visible { outline: 3px solid #77a7ff; outline-offset: 2px; }
+.button:focus-visible, input:focus-visible, .dialog-close:focus-visible, .amount-option:focus-visible { outline: 3px solid #77a7ff; outline-offset: 2px; }
 .button-primary { border-width: 2px; background: var(--white); color: var(--ink); justify-content: space-between; padding-inline: 26px; }
 .button-primary:hover:not(.is-disabled) { background: var(--soft); }
 .button-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -113,12 +113,19 @@ a { color: inherit; }
 .fine-print p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.65; }
 footer { max-width: var(--max); margin: 0 auto; padding: 22px 42px 34px; display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--ink); font-size: 9px; font-weight: 700; letter-spacing: .1em; }
 
-dialog { width: min(560px, calc(100vw - 30px)); max-height: calc(100vh - 30px); padding: 0; border: 1px solid var(--ink); border-radius: 0; color: var(--ink); background: var(--white); }
+dialog { width: min(640px, calc(100vw - 30px)); max-height: calc(100vh - 30px); padding: 0; border: 1px solid var(--ink); border-radius: 0; color: var(--ink); background: var(--white); }
 dialog::backdrop { background: rgba(0,0,0,.52); backdrop-filter: blur(4px); }
 dialog form { position: relative; padding: 38px; overflow: auto; }
 .dialog-close { position: absolute; top: 20px; right: 20px; width: 34px; height: 34px; border: 1px solid var(--ink); background: var(--white); font-size: 22px; line-height: 1; cursor: pointer; }
 dialog h2 { margin: 0; max-width: 420px; font-size: 40px; line-height: .98; letter-spacing: -.05em; }
 .dialog-intro { margin: 16px 0 28px; color: var(--muted); font-size: 13px; line-height: 1.55; }
+.amount-section { margin: 0; padding: 0; border: 0; }
+.amount-section legend, .details-heading { margin: 0 0 10px; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.amount-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+.amount-option { min-height: 48px; padding: 0 10px; border: 1px solid var(--ink); border-radius: 0; background: var(--white); color: var(--ink); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; transition: background .15s ease, color .15s ease; }
+.amount-option:hover, .amount-option.is-selected { background: var(--ink); color: var(--white); }
+.donor-details { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); }
+.details-heading { margin-bottom: 0; }
 dialog label:not(.consent-row) { display: block; margin: 18px 0 7px; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 dialog input:not([type="checkbox"]) { width: 100%; height: 50px; padding: 0 14px; border: 1px solid #bdbdbd; border-radius: 0; background: var(--white); }
 .field-note { margin: 7px 0 0; color: var(--muted); font-size: 10px; line-height: 1.45; }
