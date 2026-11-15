@@ -168,28 +168,43 @@
       <form id="contribution-form" method="dialog">
         <button class="dialog-close" type="button" id="dialog-close" aria-label="Close contribution form">×</button>
         <p class="eyebrow">BACK THE EGG</p>
-        <h2 id="dialog-title">Claim your leaderboard spot.</h2>
-        <p class="dialog-intro">Enter the public name and egg name you want displayed. Payment happens through the approved checkout provider.</p>
+        <h2 id="dialog-title">Choose your contribution.</h2>
+        <p class="dialog-intro">Select an amount, then enter the public name and egg name you want displayed. Secure checkout is handled by Stripe.</p>
 
-        <label for="donor-name">Your public name</label>
-        <input id="donor-name" name="donor" maxlength="32" autocomplete="nickname" placeholder="Anonymous" />
+        <fieldset class="amount-section">
+          <legend>Contribution amount (USD)</legend>
+          <div class="amount-options" aria-label="Quick contribution amounts">
+            <button class="amount-option is-selected" type="button" data-amount="25" aria-pressed="true">$25</button>
+            <button class="amount-option" type="button" data-amount="50" aria-pressed="false">$50</button>
+            <button class="amount-option" type="button" data-amount="100" aria-pressed="false">$100</button>
+            <button class="amount-option" type="button" data-amount="500" aria-pressed="false">$500</button>
+            <button class="amount-option" type="button" data-amount="1000" aria-pressed="false">$1,000</button>
+            <button class="amount-option" id="custom-amount-button" type="button" aria-pressed="false">CUSTOM</button>
+          </div>
+          <label for="amount">Selected or custom amount</label>
+          <div class="amount-input"><span>$</span><input id="amount" name="amount" type="number" min="1" step="0.01" inputmode="decimal" required value="25" placeholder="Enter amount" /></div>
+        </fieldset>
 
-        <label for="donor-email">Your email</label>
-        <input id="donor-email" name="email" type="email" maxlength="254" autocomplete="email" required placeholder="you@example.com" />
-        <p class="field-note">Kept private and used only to combine your repeat contributions.</p>
+        <div class="donor-details">
+          <p class="details-heading">Leaderboard details</p>
 
-        <label for="egg-name">Your proposed egg name</label>
-        <input id="egg-name" name="eggName" maxlength="32" required placeholder="Eggward" />
+          <label for="donor-name">Your public name</label>
+          <input id="donor-name" name="donor" maxlength="32" autocomplete="nickname" placeholder="Anonymous" />
 
-        <label for="amount">Contribution amount (USD)</label>
-        <div class="amount-input"><span>$</span><input id="amount" name="amount" type="number" min="1" step="0.01" inputmode="decimal" required placeholder="25" /></div>
+          <label for="donor-email">Your email</label>
+          <input id="donor-email" name="email" type="email" maxlength="254" autocomplete="email" required placeholder="you@example.com" />
+          <p class="field-note">Kept private and used only to combine your repeat contributions.</p>
+
+          <label for="egg-name">Your proposed egg name</label>
+          <input id="egg-name" name="eggName" maxlength="32" required placeholder="Eggward" />
+        </div>
 
         <label class="consent-row"><input id="public-consent" type="checkbox" required /><span>I consent to displaying my public name, proposed egg name, contribution amount, and payment route on the leaderboard.</span></label>
 
-        <button class="button button-primary checkout-button" id="checkout-button" type="submit">CONTINUE TO SECURE CHECKOUT <span aria-hidden="true">→</span></button>
+        <button class="button button-primary checkout-button" id="checkout-button" type="submit">CONTINUE WITH STRIPE <span aria-hidden="true">→</span></button>
         <p class="form-status" id="form-status" role="status"></p>
         <a class="high-value-link" id="high-value-link" href="#" hidden>CONTINUE WITH VERIFIED BANK TRANSFER →</a>
-        <p class="checkout-note">No card details are collected on this page. Contributions become final only after the payment provider confirms settlement.</p>
+        <p class="checkout-note">You will be redirected to Stripe. No card or wallet details are collected on this page.</p>
       </form>
     </dialog>
 
