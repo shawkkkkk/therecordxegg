@@ -43,6 +43,7 @@ a { color: inherit; }
 .progress-track span { display: block; width: 0; height: 100%; background: var(--ink); transition: width .5s ease; }
 
 .actions { margin-top: 28px; display: grid; gap: 10px; }
+.payment-timing-note { margin: 3px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; text-align: center; }
 .button { min-height: 58px; border: 1px solid var(--ink); display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 16px 20px; border-radius: 0; background: var(--white); color: var(--ink); text-decoration: none; font-size: 12px; font-weight: 700; letter-spacing: .09em; cursor: pointer; transition: transform .18s ease, background .18s ease, color .18s ease; }
 .button:hover:not(.is-disabled) { transform: translateY(-2px); }
 .button:focus-visible, input:focus-visible, .dialog-close:focus-visible, .amount-option:focus-visible { outline: 3px solid #77a7ff; outline-offset: 2px; }
