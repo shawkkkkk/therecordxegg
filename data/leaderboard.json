@@ -1,4 +1,85 @@
 {
-  "updatedAt": null,
-  "donors": []
+  "updatedAt": "2026-11-21T20:00:10.000Z",
+  "donors": [
+    {
+      "donor": "Anonymous X User",
+      "eggName": "Lacy bald head",
+      "amountUsd": 6769,
+      "route": "xmoney",
+      "verified": true,
+      "verifiedAt": "2026-11-21T20:00:01.000Z"
+    },
+    {
+      "donor": "@mog",
+      "eggName": "Egg Mogged",
+      "amountUsd": 5000,
+      "route": "xmoney",
+      "verified": true,
+      "verifiedAt": "2026-11-21T20:00:02.000Z"
+    },
+    {
+      "donor": "Anonymous X User",
+      "eggName": "Egglon Musk",
+      "amountUsd": 4200,
+      "route": "xmoney",
+      "verified": true,
+      "verifiedAt": "2026-11-21T20:00:03.000Z"
+    },
+    {
+      "donor": "EroMe",
+      "eggName": "Cracked",
+      "amountUsd": 4000,
+      "route": "site",
+      "verified": true,
+      "verifiedAt": "2026-11-21T20:00:04.000Z"
+    },
+    {
+      "donor": "D2 Cooch",
+      "eggName": "Luka doncic left nut",
+      "amountUsd": 3999,
+      "route": "site",
+      "verified": true,
+      "verifiedAt": "2026-11-21T20:00:05.000Z"
+    },
+    {
+      "donor": "Sever Casino",
+      "eggName": "Sever Casino",
+      "amountUsd": 3921,
+      "route": "site",
+      "verified": true,
+      "verifiedAt": "2026-11-21T20:00:06.000Z"
+    },
+    {
+      "donor": "@BagsPay",
+      "eggName": "Unnamed",
+      "amountUsd": 1303,
+      "route": "xmoney",
+      "verified": true,
+      "verifiedAt": "2026-11-21T20:00:07.000Z"
+    },
+    {
+      "donor": "Luke Slattery",
+      "eggName": "Mo-Egg-Vember",
+      "amountUsd": 500,
+      "route": "site",
+      "verified": true,
+      "verifiedAt": "2026-11-21T20:00:08.000Z"
+    },
+    {
+      "donor": "@itsreallyggs",
+      "eggName": "Hasanabi’s Head Size (real)",
+      "amountUsd": 250,
+      "route": "xmoney",
+      "verified": true,
+      "verifiedAt": "2026-11-21T20:00:09.000Z"
+    },
+    {
+      "donor": "@mafiacuiabanals",
+      "eggName": "Egg Cenat",
+      "amountUsd": 250,
+      "route": "xmoney",
+      "verified": true,
+      "verifiedAt": "2026-11-21T20:00:10.000Z"
+    }
+  ]
 }
