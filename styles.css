@@ -72,9 +72,9 @@ a { color: inherit; }
 .donor-main { min-width: 0; display: flex; align-items: center; gap: 12px; }
 .rank { flex: 0 0 24px; font-size: 12px; font-weight: 700; }
 .donor-identity { min-width: 0; }
-.donor-name { display: block; overflow: hidden; text-overflow: ellipsis; font-size: 13px; font-weight: 600; white-space: nowrap; }
+.donor-name { display: block; overflow: hidden; text-overflow: ellipsis; font-size: 12px; font-weight: 500; white-space: nowrap; }
 .route-badge { display: inline-block; margin-top: 4px; font-size: 8px; font-weight: 700; letter-spacing: .08em; color: var(--ink); text-transform: uppercase; }
-.egg-name { overflow: hidden; text-overflow: ellipsis; font-size: 12px; white-space: nowrap; }
+.egg-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; font-size: 13px; font-weight: 600; white-space: nowrap; }
 .donor-amount { font-size: 13px; font-weight: 700; text-align: right; }
 .donor:first-child { border-top-color: var(--ink); background: linear-gradient(90deg, rgba(242,166,90,.14), transparent); }
 .donor:first-child .rank::after { content: ""; display: inline-block; width: 5px; height: 5px; margin-left: 5px; border-radius: 50%; background: var(--accent); vertical-align: middle; }
