@@ -79,6 +79,11 @@ function renderLeaderboard() {
     const rank = document.createElement("span");
     rank.className = "rank";
     rank.textContent = String(index + 1).padStart(2, "0");
+    const eggName = document.createElement("span");
+    eggName.className = "egg-name";
+    eggName.textContent = donor.eggName.trim();
+    main.append(rank, eggName);
+
     const identity = document.createElement("span");
     identity.className = "donor-identity";
     const name = document.createElement("span");
@@ -86,17 +91,13 @@ function renderLeaderboard() {
     name.textContent = donor.donor.trim();
     const route = document.createElement("span");
     route.className = "route-badge";
-    route.textContent = donor.route === "xmoney" ? "𝕏 MONEY" : "ON SITE";
+    route.textContent = donor.route === "xmoney" ? "𝕏 MONEY" : "STRIPE";
     identity.append(name, route);
-    main.append(rank, identity);
 
-    const eggName = document.createElement("span");
-    eggName.className = "egg-name";
-    eggName.textContent = donor.eggName.trim();
     const amount = document.createElement("span");
     amount.className = "donor-amount";
     amount.textContent = formatCurrency(donor.amountUsd);
-    item.append(main, eggName, amount);
+    item.append(main, identity, amount);
     list.append(item);
   });
 }
