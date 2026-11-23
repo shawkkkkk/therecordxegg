@@ -67,7 +67,7 @@ function validDonor(item) {
 function renderImpact() {
   const totalRaised = state.leaderboard.filter(validDonor).reduce((sum, donor) => sum + donor.amountUsd, 0);
   const wfpAllocation = totalRaised * 0.8;
-  const estimatedMeals = Math.floor(wfpAllocation / 0.8);
+  const estimatedMeals = Math.floor(wfpAllocation * 3.5);
   $("#total-raised").textContent = formatCurrency(totalRaised);
   $("#estimated-meals").textContent = new Intl.NumberFormat("en-US").format(estimatedMeals);
 }
