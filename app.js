@@ -64,6 +64,14 @@ function validDonor(item) {
     typeof item.verifiedAt === "string" && Number.isFinite(Date.parse(item.verifiedAt));
 }
 
+function renderImpact() {
+  const totalRaised = state.leaderboard.filter(validDonor).reduce((sum, donor) => sum + donor.amountUsd, 0);
+  const wfpAllocation = totalRaised * 0.8;
+  const estimatedMeals = Math.floor(wfpAllocation / 0.8);
+  $("#total-raised").textContent = formatCurrency(totalRaised);
+  $("#estimated-meals").textContent = new Intl.NumberFormat("en-US").format(estimatedMeals);
+}
+
 function renderLeaderboard() {
   const list = $("#donor-list");
   list.replaceChildren();
@@ -118,10 +126,12 @@ async function loadData() {
     const stripeDonors = Array.isArray(stripeLeaderboard.donors) ? stripeLeaderboard.donors : [];
     state.leaderboard = [...staticDonors, ...stripeDonors];
     renderSite();
+    renderImpact();
     renderLeaderboard();
   } catch {
     state.site = { campaignStatus: "Pre-launch", recordTarget: 6_700_001, recordTargetLabel: "6.7M+" };
     renderSite();
+    renderImpact();
     renderLeaderboard();
   }
 }
