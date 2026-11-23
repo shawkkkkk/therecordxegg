@@ -44,6 +44,14 @@ a { color: inherit; }
 
 .actions { margin-top: 28px; display: grid; gap: 10px; }
 .payment-timing-note { margin: 3px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; text-align: center; }
+
+.impact-tracker { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--ink); background: var(--white); }
+.impact-metric { min-width: 0; padding: 22px 24px 20px; display: grid; gap: 7px; }
+.impact-metric + .impact-metric { border-left: 1px solid var(--ink); }
+.impact-metric strong { overflow: hidden; color: var(--ink); font-size: clamp(30px, 4vw, 48px); line-height: .95; letter-spacing: -.055em; text-overflow: ellipsis; white-space: nowrap; }
+.impact-metric span { color: var(--ink); font-size: 10px; font-weight: 700; letter-spacing: .12em; }
+.impact-note { grid-column: 1 / -1; margin: 0; padding: 11px 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; line-height: 1.45; }
+.impact-note a { color: inherit; text-underline-offset: 2px; }
 .button { min-height: 58px; border: 1px solid var(--ink); display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 16px 20px; border-radius: 0; background: var(--white); color: var(--ink); text-decoration: none; font-size: 12px; font-weight: 700; letter-spacing: .09em; cursor: pointer; transition: transform .18s ease, background .18s ease, color .18s ease; }
 .button:hover:not(.is-disabled) { transform: translateY(-2px); }
 .button:focus-visible, input:focus-visible, .dialog-close:focus-visible, .amount-option:focus-visible { outline: 3px solid #77a7ff; outline-offset: 2px; }
@@ -156,6 +164,8 @@ dialog input:not([type="checkbox"]) { width: 100%; height: 50px; padding: 0 14px
 }
 
 @media (max-width: 640px) {
+  .impact-tracker { grid-template-columns: 1fr; }
+  .impact-metric + .impact-metric { border-left: 0; border-top: 1px solid var(--ink); }
   .site-header { padding: 20px 16px 8px; }
   .brand { font-size: 10px; }
   .status-pill { font-size: 8px; }
