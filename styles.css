@@ -79,6 +79,7 @@ a { color: inherit; }
 .donor:first-child { border-top-color: var(--ink); background: linear-gradient(90deg, rgba(242,166,90,.14), transparent); }
 .donor:first-child .rank::after { content: ""; display: inline-block; width: 5px; height: 5px; margin-left: 5px; border-radius: 50%; background: var(--accent); vertical-align: middle; }
 .empty-state { min-height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-top: 1px solid var(--line); }
+.empty-state[hidden] { display: none; }
 .empty-egg { display: grid; place-items: center; width: 68px; height: 84px; border: 1.5px solid var(--ink); border-radius: 50% 50% 46% 46% / 58% 58% 42% 42%; color: transparent; transform: rotate(3deg); }
 .empty-state h3 { margin: 24px 0 8px; font-size: 20px; letter-spacing: -.03em; }
 .empty-state p { max-width: 280px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
