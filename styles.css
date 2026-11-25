@@ -25,6 +25,41 @@ a { color: inherit; }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-size: 13px; font-weight: 700; letter-spacing: .1em; }
 .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--ink); border-radius: 50%; font-size: 17px; }
 .status-pill { border: 1px solid var(--ink); border-radius: 999px; padding: 8px 12px; font-size: 10px; font-weight: 700; letter-spacing: .12em; }
+.campaign-alert {
+  width: 100%;
+  margin: 12px 0 0;
+  padding: clamp(2.5rem, 6vw, 6rem) clamp(1rem, 5vw, 4rem);
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  background: var(--ink);
+  color: var(--white);
+  text-align: center;
+}
+
+.campaign-alert h2 {
+  max-width: 1320px;
+  margin: 0 auto;
+  font-size: clamp(2.75rem, 6.6vw, 6.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+  font-weight: 700;
+}
+
+.campaign-alert p {
+  max-width: 900px;
+  margin: 1.5rem auto 0;
+  font-size: clamp(1rem, 1.6vw, 1.35rem);
+  line-height: 1.45;
+}
+
+.campaign-alert p:first-child {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
 .payment-banner { max-width: calc(var(--max) - 84px); margin: 10px auto 0; padding: 14px 18px; border: 1px solid var(--ink); background: var(--soft); color: var(--ink); font-size: 12px; font-weight: 600; text-align: center; }
 
 .page-shell { max-width: var(--max); margin: 0 auto; padding: 42px; display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(390px, .88fr); gap: 72px; align-items: start; }
