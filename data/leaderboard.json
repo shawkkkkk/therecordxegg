@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-25T13:45:00.000Z",
+  "updatedAt": "2026-11-25T14:10:00.000Z",
   "donors": [
     {
       "donor": "Anonymous X User",
@@ -68,7 +68,7 @@
     {
       "donor": "Geekay Dubai",
       "eggName": "Eggsen Huang",
-      "amountUsd": 2500,
+      "amountUsd": 10000,
       "route": "site",
       "verified": true,
       "verifiedAt": "2026-11-21T20:00:09.000Z"
