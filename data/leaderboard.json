@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-25T16:20:00.000Z",
+  "updatedAt": "2026-11-25T16:30:00.000Z",
   "donors": [
     {
       "donor": "Anonymous X User",
@@ -81,5 +81,6 @@
       "verified": true,
       "verifiedAt": "2026-11-21T20:00:10.000Z"
     }
-  ]
+  ],
+  "totalRaisedUsd": 371321
 }
