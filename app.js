@@ -46,7 +46,7 @@ function formatCurrency(value) {
 
 function renderSite() {
   const site = state.site;
-  $("#like-count").textContent = formatLikes(site.currentLikes);
+  $("#like-count").textContent = Number.isSafeInteger(site.currentLikes) ? formatLikes(site.currentLikes) : (safeExternalUrl(site.xPostUrl) ? "POST LIVE" : "POST COMING SOON");
   $("#record-target").textContent = `GOAL ${site.recordTargetLabel || "6.7M+"}`;
   configureLink($("#like-button"), site.xPostUrl, "X POST LINK COMING");
   configureLink($("#xmoney-button"), site.xMoneyUrl, "X MONEY LINK COMING");
