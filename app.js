@@ -46,10 +46,13 @@ function formatCurrency(value) {
 
 function renderSite() {
   const site = state.site;
-  $("#like-count").textContent = Number.isSafeInteger(site.currentLikes) ? formatLikes(site.currentLikes) : (safeExternalUrl(site.xPostUrl) ? "POST LIVE" : "POST COMING SOON");
+  const hasXPost = Boolean(safeExternalUrl(site.xPostUrl));
+  $("#like-count").textContent = Number.isSafeInteger(site.currentLikes) ? formatLikes(site.currentLikes) : (hasXPost ? "POST LIVE" : "POST UNAVAILABLE");
   $("#record-target").textContent = `GOAL ${site.recordTargetLabel || "6.7M+"}`;
-  configureLink($("#like-button"), site.xPostUrl, "X POST LINK COMING");
+  configureLink($("#like-button"), site.xPostUrl, "X POST UNAVAILABLE");
   configureLink($("#xmoney-button"), site.xMoneyUrl, "X MONEY LINK COMING");
+  $("#like-button").hidden = !hasXPost;
+  $(".progress-card").hidden = !hasXPost;
 
   const current = Number.isSafeInteger(site.currentLikes) ? site.currentLikes : 0;
   const target = Number.isSafeInteger(site.recordTarget) && site.recordTarget > 0 ? site.recordTarget : 6_700_001;
