@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-25T14:10:00.000Z",
+  "updatedAt": "2026-11-25T16:20:00.000Z",
   "donors": [
     {
       "donor": "Anonymous X User",
@@ -58,10 +58,10 @@
       "verifiedAt": "2026-11-21T20:00:07.000Z"
     },
     {
-      "donor": "@BagsPay",
-      "eggName": "Unnamed",
+      "donor": "waitingfor1000x",
+      "eggName": "TrainEggWrecksTV",
       "amountUsd": 13030,
-      "route": "xmoney",
+      "route": "site",
       "verified": true,
       "verifiedAt": "2026-11-21T20:00:08.000Z"
     },
@@ -72,6 +72,14 @@
       "route": "site",
       "verified": true,
       "verifiedAt": "2026-11-21T20:00:09.000Z"
+    },
+    {
+      "donor": "TheDegenGambler",
+      "eggName": "XQCEgg",
+      "amountUsd": 6969,
+      "route": "site",
+      "verified": true,
+      "verifiedAt": "2026-11-21T20:00:10.000Z"
     }
   ]
 }
