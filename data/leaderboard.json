@@ -1,85 +1,77 @@
 {
-  "updatedAt": "2026-11-21T20:00:10.000Z",
+  "updatedAt": "2026-11-25T13:45:00.000Z",
   "donors": [
     {
       "donor": "Anonymous X User",
       "eggName": "mrbeast bald head",
-      "amountUsd": 6769,
+      "amountUsd": 67690,
       "route": "xmoney",
       "verified": true,
       "verifiedAt": "2026-11-21T20:00:01.000Z"
     },
     {
-      "donor": "@mog",
-      "eggName": "Egg Mogged",
-      "amountUsd": 5000,
-      "route": "xmoney",
+      "donor": "The Professional",
+      "eggName": "GTA 6 Egg",
+      "amountUsd": 50000,
+      "route": "site",
       "verified": true,
       "verifiedAt": "2026-11-21T20:00:02.000Z"
     },
     {
       "donor": "Anonymous X User",
       "eggName": "Egglon Musk",
-      "amountUsd": 4200,
+      "amountUsd": 42000,
       "route": "xmoney",
       "verified": true,
       "verifiedAt": "2026-11-21T20:00:03.000Z"
     },
     {
-      "donor": "EroMe",
-      "eggName": "Cracked",
-      "amountUsd": 4000,
+      "donor": "Sever Casino",
+      "eggName": "Sever Online Casino",
+      "amountUsd": 39210,
       "route": "site",
       "verified": true,
       "verifiedAt": "2026-11-21T20:00:04.000Z"
     },
     {
-      "donor": "D2 Cooch",
-      "eggName": "Luka doncic left nut",
-      "amountUsd": 3999,
-      "route": "site",
+      "donor": "@mog",
+      "eggName": "Egg Mogged",
+      "amountUsd": 38459,
+      "route": "xmoney",
       "verified": true,
       "verifiedAt": "2026-11-21T20:00:05.000Z"
     },
     {
-      "donor": "Sever Casino",
-      "eggName": "Sever Casino",
-      "amountUsd": 3921,
+      "donor": "EroMe",
+      "eggName": "Cracked",
+      "amountUsd": 36969,
       "route": "site",
       "verified": true,
       "verifiedAt": "2026-11-21T20:00:06.000Z"
     },
     {
-      "donor": "@BagsPay",
-      "eggName": "Unnamed",
-      "amountUsd": 1303,
-      "route": "xmoney",
+      "donor": "D2 Cooch",
+      "eggName": "Luka doncic left nut",
+      "amountUsd": 25777,
+      "route": "site",
       "verified": true,
       "verifiedAt": "2026-11-21T20:00:07.000Z"
     },
     {
-      "donor": "Luke Slattery",
-      "eggName": "Mo-Egg-Vember",
-      "amountUsd": 500,
-      "route": "site",
+      "donor": "@BagsPay",
+      "eggName": "Unnamed",
+      "amountUsd": 13030,
+      "route": "xmoney",
       "verified": true,
       "verifiedAt": "2026-11-21T20:00:08.000Z"
     },
     {
-      "donor": "@itsreallyggs",
-      "eggName": "Hasanabi’s Head Size (real)",
-      "amountUsd": 250,
-      "route": "xmoney",
+      "donor": "Geekay Dubai",
+      "eggName": "Eggsen Huang",
+      "amountUsd": 2500,
+      "route": "site",
       "verified": true,
       "verifiedAt": "2026-11-21T20:00:09.000Z"
-    },
-    {
-      "donor": "@mafiacuiabanals",
-      "eggName": "Kai \"Vivegg\" Cenat",
-      "amountUsd": 250,
-      "route": "xmoney",
-      "verified": true,
-      "verifiedAt": "2026-11-21T20:00:10.000Z"
     }
   ]
 }
