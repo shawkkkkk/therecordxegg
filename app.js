@@ -3,6 +3,7 @@ const $ = (selector) => document.querySelector(selector);
 const state = {
   site: null,
   leaderboard: [],
+  totalRaisedUsd: null,
 };
 
 function safeExternalUrl(value) {
@@ -65,7 +66,8 @@ function validDonor(item) {
 }
 
 function renderImpact() {
-  const totalRaised = state.leaderboard.filter(validDonor).reduce((sum, donor) => sum + donor.amountUsd, 0);
+  const leaderboardTotal = state.leaderboard.filter(validDonor).reduce((sum, donor) => sum + donor.amountUsd, 0);
+  const totalRaised = Number.isFinite(state.totalRaisedUsd) && state.totalRaisedUsd >= 0 ? state.totalRaisedUsd : leaderboardTotal;
   const wfpAllocation = totalRaised * 0.8;
   const estimatedMeals = Math.floor(wfpAllocation * 3.5);
   $("#total-raised").textContent = formatCurrency(totalRaised);
@@ -122,6 +124,7 @@ async function loadData() {
     const leaderboard = await leaderboardResponse.json();
     state.site = site;
     const staticDonors = Array.isArray(leaderboard.donors) ? leaderboard.donors : [];
+    state.totalRaisedUsd = Number(leaderboard.totalRaisedUsd);
     const stripeLeaderboard = stripeResponse?.ok ? await stripeResponse.json() : { donors: [] };
     const stripeDonors = Array.isArray(stripeLeaderboard.donors) ? stripeLeaderboard.donors : [];
     state.leaderboard = [...staticDonors, ...stripeDonors];
