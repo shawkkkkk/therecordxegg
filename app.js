@@ -50,7 +50,7 @@ function renderSite() {
   $("#like-count").textContent = Number.isSafeInteger(site.currentLikes) ? formatLikes(site.currentLikes) : (hasXPost ? "POST LIVE" : "POST UNAVAILABLE");
   $("#record-target").textContent = `GOAL ${site.recordTargetLabel || "6.7M+"}`;
   configureLink($("#like-button"), site.xPostUrl, "X POST UNAVAILABLE");
-  configureLink($("#xmoney-button"), site.xMoneyUrl, "X MONEY LINK COMING");
+  configureLink($("#xmoney-button"), site.xMoneyPaused === true ? null : site.xMoneyUrl, "X MONEY (PAUSED TEMPORARILY)");
   $("#like-button").hidden = !hasXPost;
   $(".progress-card").hidden = !hasXPost;
 
