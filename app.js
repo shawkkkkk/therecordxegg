@@ -47,7 +47,7 @@ function formatCurrency(value) {
 function renderSite() {
   const site = state.site;
   const hasXPost = Boolean(safeExternalUrl(site.xPostUrl));
-  $("#like-count").textContent = Number.isSafeInteger(site.currentLikes) ? formatLikes(site.currentLikes) : (hasXPost ? "POST LIVE" : "POST UNAVAILABLE");
+  $("#like-count").textContent = Number.isSafeInteger(site.currentLikes) ? formatLikes(site.currentLikes) : (hasXPost ? "POST LIVE" : "POST COMING SOON");
   $("#record-target").textContent = `GOAL ${site.recordTargetLabel || "6.7M+"}`;
   configureLink($("#like-button"), site.xPostUrl, "X POST UNAVAILABLE");
   configureLink($("#xmoney-button"), site.xMoneyPaused === true ? null : site.xMoneyUrl, "X MONEY (PAUSED TEMPORARILY)");
@@ -78,7 +78,7 @@ function renderImpact() {
   tracker.hidden = false;
   const leaderboardTotal = state.leaderboard.filter(validDonor).reduce((sum, donor) => sum + donor.amountUsd, 0);
   const totalRaised = Number.isFinite(state.totalRaisedUsd) && state.totalRaisedUsd >= 0 ? state.totalRaisedUsd : leaderboardTotal;
-  const wfpAllocation = totalRaised * 0.8;
+  const wfpAllocation = totalRaised;
   const estimatedMeals = Math.floor(wfpAllocation * 3.5);
   $("#total-raised").textContent = formatCurrency(totalRaised);
   $("#estimated-meals").textContent = new Intl.NumberFormat("en-US").format(estimatedMeals);
