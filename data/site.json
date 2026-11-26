@@ -4,5 +4,7 @@
   "xMoneyUrl": "https://x.com/i/money/pay/therecordxegg",
   "currentLikes": null,
   "recordTarget": 6700001,
-  "recordTargetLabel": "6.7M+"
+  "recordTargetLabel": "6.7M+",
+  "showLeaderboard": false,
+  "showImpact": false
 }
