@@ -69,6 +69,13 @@ function validDonor(item) {
 }
 
 function renderImpact() {
+  const tracker = $(".impact-tracker");
+  if (state.site?.showImpact === false) {
+    tracker.hidden = true;
+    return;
+  }
+
+  tracker.hidden = false;
   const leaderboardTotal = state.leaderboard.filter(validDonor).reduce((sum, donor) => sum + donor.amountUsd, 0);
   const totalRaised = Number.isFinite(state.totalRaisedUsd) && state.totalRaisedUsd >= 0 ? state.totalRaisedUsd : leaderboardTotal;
   const wfpAllocation = totalRaised * 0.8;
@@ -80,7 +87,9 @@ function renderImpact() {
 function renderLeaderboard() {
   const list = $("#donor-list");
   list.replaceChildren();
-  const donors = state.leaderboard.filter(validDonor).sort((a, b) => b.amountUsd - a.amountUsd || Date.parse(a.verifiedAt) - Date.parse(b.verifiedAt)).slice(0, 10);
+  const donors = state.site?.showLeaderboard === false
+    ? []
+    : state.leaderboard.filter(validDonor).sort((a, b) => b.amountUsd - a.amountUsd || Date.parse(a.verifiedAt) - Date.parse(b.verifiedAt)).slice(0, 10);
   $("#empty-state").hidden = donors.length > 0;
 
   donors.forEach((donor, index) => {
