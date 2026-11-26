@@ -6,5 +6,6 @@
   "recordTarget": 6700001,
   "recordTargetLabel": "6.7M+",
   "showLeaderboard": false,
-  "showImpact": false
+  "showImpact": false,
+  "xMoneyPaused": true
 }
